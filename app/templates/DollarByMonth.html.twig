@@ -1,0 +1,25 @@
+{% include '/base.html.twig' %}
+
+{% block body %}
+<div class="container">
+    <div><h1>Valores del dolar en un mes</h1></div>
+    <div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>fecha</th>
+            <th>Valor</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for dollar in dollar_values %}
+            <tr>
+                <td>{{ dollar.Fecha }}</td>
+                <td>{{ dollar.Valor }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+</div>
+{% endblock %}
