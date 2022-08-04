@@ -11,7 +11,7 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class fetchSbifAPI
 {
-    private $params;
+    private ContainerBagInterface $params;
 
     public function __construct(ContainerBagInterface $params)
     {
@@ -21,7 +21,7 @@ class fetchSbifAPI
     /**
      * @throws TransportExceptionInterface
      */
-    public function dollarValuesByMonth(HttpClientInterface $httpClient ,$date){
+    public function dollarValuesByMonth(HttpClientInterface $httpClient, $date){
 
         $month = $date['month'];
         $year = $date['year'];

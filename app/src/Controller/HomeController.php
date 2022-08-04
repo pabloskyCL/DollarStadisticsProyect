@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
@@ -41,6 +42,9 @@ class HomeController extends AbstractController
      */
     public function downloadDollarValuesByMonth(): BinaryFileResponse
     {
-        return $this->file('../public/dollarValues.csv');
+        $response = new BinaryFileResponse('../public/dollarValues.csv');
+        $response->setContentDisposition(ResponseHeaderBag::DISPOSITION_ATTACHMENT);
+        $response->deleteFileAfterSend();
+        return $response;
     }
 }

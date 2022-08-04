@@ -3,5 +3,5 @@
 namespace App\Interfaces;
 
 interface ICsvInterface {
-    function createCsvDollarValuesByMonth($dollarValueList);
+    function createCsvDollarValuesByMonth(array $dollarValueList);
 }

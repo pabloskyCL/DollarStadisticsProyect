@@ -11,8 +11,8 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class sbifAPIService implements IDollarInterface {
 
-    private $httpClient;
-    private $fetchSbifAPI;
+    private HttpClientInterface $httpClient;
+    private fetchSbifAPI $fetchSbifAPI;
 
     public function __construct(HttpClientInterface $httpClient, fetchSbifAPI $fetchSbifAPI)
     {

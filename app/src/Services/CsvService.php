@@ -7,7 +7,7 @@ use App\Interfaces\ICsvInterface;
 class CsvService implements ICsvInterface
 {
 
-    function createCsvDollarValuesByMonth($dollarValueList)
+    function createCsvDollarValuesByMonth(array $dollarValueList)
     {
         $fcsv = fopen('dollarValues.csv', 'w');
         $csv = '';
@@ -25,7 +25,7 @@ class CsvService implements ICsvInterface
                 $line_array[] = $value;
             }
 
-            $csv .= "\n" . implode(',', $line_array);
+            $csv .=  implode(',', $line_array);
 
             fputcsv($fcsv, $line_array);
         }
