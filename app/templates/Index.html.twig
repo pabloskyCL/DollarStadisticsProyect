@@ -3,7 +3,18 @@
 {% block body %}
 <div class="container">
     <h1>Consulta valores del dolar en un mes, Seleccione un mes</h1>
-    {{ form_start(form) }}
+    {{ form_start(form,{'attr': {'novalidate': 'novalidate'}}) }}
+    <div class="row">
+        {{ form_errors(form.rut) }}
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            {{ form_row(form.rut,{'attr': {'class': 'form-control','novalidate': 'novalidate'}})  }}
+        </div>
+        <div class="col-md-4">
+            {{ form_row(form.email,{'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
         <div class="row mb-3">
             <div class="col-sm-auto">
                 <label for="month">Mes</label>
@@ -12,6 +23,7 @@
             <div class="col-sm-auto">
                 <label for="year">Año</label>
             {{ form_widget(form.Mes.year,{'attr': {'id': 'year','class':'form-control'}}) }}
+                {{ form_widget(form.Mes.day,{'attr': {'id': 'day','class':'form-control','hidden': 'true' }}) }}
         </div>
         </div>
         <div class="row">

@@ -19,13 +19,13 @@ class HomeController extends AbstractController
      *
      * @Route("/", name="index_page")
      */
-    public function indexAction(IDollarInterface $IDollar, ICsvInterface $csv, Request $request): Response
+    public function indexAction(IDollarInterface $IGetValuesFromDB, ICsvInterface $csv, Request $request): Response
     {
         $form = $this->createForm(DollarValueByMonthType::class);
         $form->handleRequest($request);
         $date = $form->get('Mes')->getViewData();
-        if ($form->isSubmitted()) {
-            $dollarValues = $IDollar->dollarValuesByMonth($date);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $dollarValues = $IGetValuesFromDB->dollarValuesByMonth($date);
             if ($form->get('download')->isClicked()) {
                 $csv->createCsvDollarValuesByMonth($dollarValues);
                 return $this->redirectToRoute('download_values');

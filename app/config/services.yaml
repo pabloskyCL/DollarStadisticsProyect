@@ -22,3 +22,15 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    App\Services\sbifAPIService:
+        arguments:
+          [ '@http_client', '@App\SbifClient\fetchSbifAPI' ]
+
+    App\Services\DollarValuesService:
+        arguments:
+          ['@App\Repository\DollarValueRepository']
+
+    App\Interfaces\IDollarInterface $IGetValuesFromDB: '@App\Services\DollarValuesService'
+
+    App\Interfaces\IDollarInterface $IGetValuesFromAPI: '@App\Services\sbifAPIService'
