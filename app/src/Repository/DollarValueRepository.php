@@ -39,6 +39,17 @@ class DollarValueRepository extends ServiceEntityRepository
         }
     }
 
+    public function getDollarValuesByMonth($initialDate,$endDate){
+        $qb = $this->getEntityManager()->createQueryBuilder();
+        $qb->select('dvalues')
+            ->from('App:DollarValue','dvalues')
+            ->where('dvalues.date BETWEEN :initial AND :end')
+            ->setParameter('initial',$initialDate->format('Y-m-d'))
+            ->setParameter('end',$endDate->format('Y-m-d'));
+        $query = $qb->getQuery();
+        return $query->getResult();
+    }
+
 //    /**
 //     * @return DollarValue[] Returns an array of DollarValue objects
 //     */
