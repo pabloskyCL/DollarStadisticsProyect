@@ -19,9 +19,8 @@ class DollarValueByMonthType extends AbstractType{
              ->add('email',EmailType::class)
              ->add('Mes', DateType::class,[
                  'widget'=>'choice',
-                 'format'=>'yyyy-M-dd',
                  'years' =>range('1991',date('Y')),
-                 'months'=> range('01',date('n')),
+                 'months'=> range('01',date('m')),
                  'days'=> range('01',date('d'))
                  ])
              ->add('download', SubmitType::class,['label'=>'descargar'])

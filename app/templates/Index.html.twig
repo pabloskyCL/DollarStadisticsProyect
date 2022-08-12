@@ -35,29 +35,4 @@
             </div>
         </div>
 </div>
-    <script>
-        const yearSelector = document.getElementById('dollar_value_by_month_Mes_year');
-        const monthSelectorValues = document.getElementById('dollar_value_by_month_Mes_month');
-        yearSelector.addEventListener('change',function (event) {
-            let today = new Date();
-            if((event.target.value < today.getFullYear())){
-                for(let i = monthSelectorValues.options.length+1; i<= 12;i++){
-                    let opt = document.createElement('option');
-                    opt.value = i;
-                    opt.innerHTML = i;
-                    document.getElementById('dollar_value_by_month_Mes_month').appendChild(opt);
-                }
-                return false;
-            }
-            var todayDateMonth = today.getMonth();
-            for (let i = 11; i >=todayDateMonth+1; i--){
-                let child = monthSelectorValues.options[i];
-                monthSelectorValues.removeChild(child);
-            }
-
-        });
-
-
-    </script>
 {% endblock %}
-
