@@ -1,0 +1,20 @@
+{% include '/base.html.twig' %}
+
+{% block body %}
+    {% if error %}
+        <div class="alert alert-danger">{{ error }}</div>
+    {% endif %}
+    <form action="{{ path('app_login') }}" class="form-control" method="post">
+        <label for="username">Email:</label>
+        <input type="text" id="username" name="_username" class="form-control" value="{{ last_username }}"/>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="_password" class="form-control"/>
+
+
+        <input type="hidden" name="_target_path" value="{{ path('index_page') }}"/>
+
+        <button type="submit" class="btn btn-primary">login</button>
+    </form>
+
+{% endblock %}
