@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class DollarValueByMonthType extends AbstractType{
 
@@ -20,13 +21,12 @@ class DollarValueByMonthType extends AbstractType{
              ->add('Mes', DateType::class,[
                  'widget'=>'choice',
                  'format'=>'yyyy-M-dd',
-                 'years' =>range('1991',date('Y')),
+                 'years' =>range(date('Y'),'1991'),
                  'months'=> range('01',date('n')),
                  'days'=> range('01',date('d'))
                  ])
              ->add('download', SubmitType::class,['label'=>'descargar'])
              ->add('visulize', SubmitType::class,['label'=>'visualizar']);
     }
-
 
 }

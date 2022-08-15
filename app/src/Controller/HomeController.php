@@ -17,7 +17,7 @@ class HomeController extends AbstractController
 
     /**
      *
-     * @Route("/", name="index_page")
+     * @Route("/app", name="index_page")
      */
     public function indexAction(IDollarInterface $IGetValuesFromDB, ICsvInterface $csv, Request $request): Response
     {
