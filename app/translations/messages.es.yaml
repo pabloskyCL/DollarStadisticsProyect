@@ -1,1 +1,11 @@
-invalid credentials.: credenciales Invalidas
+App:
+  NavBar:
+    app_brand_name: Dollar Estadisticts
+  Authentication:
+    Login:
+      login: Iniciar sesión
+      error:
+        invalid_credentials: credenciales Invalidas
+      success:
+    Logout: Cerrar sesión
+

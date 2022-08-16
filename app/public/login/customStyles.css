@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+
+.login-container{
+    max-width: 440px;
+    padding: 0 20px;
+    margin: 150px auto;
+}
+
+.brand-img{
+    max-width: 200px;
+    margin:auto;
+}
+
+#password{
+   margin-bottom: 20px;
+}
+
+#username{
+    margin-bottom: 20px;
+}
